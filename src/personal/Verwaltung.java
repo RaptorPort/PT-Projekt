@@ -17,9 +17,9 @@ public class Verwaltung {
 		delAngestellter(1);
 		angestellte.forEach(a->System.out.println("ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt()));
 		Angestellter a = maxGehalt();
-		System.out.println("Bonzen des Monats iiiiist: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
+		System.out.println("Angestellter mit höchstem Gehalt: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
 		a = minGehalt();
-		System.out.println("Ärmster Sklave iiiiist: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
+		System.out.println("Angestellter mit niedrigstem Gehalt: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
 	}
 	
 	private static void addAngestellter(Angestellter a) {
@@ -36,6 +36,10 @@ public class Verwaltung {
 	
 	private static Angestellter minGehalt() {
 		return Collections.min(angestellte);
+	}
+	
+	private static boolean doppeltVorhanden() {
+		return false;
 	}
 	
 	private static Angestellter getNewPersonInfo() {

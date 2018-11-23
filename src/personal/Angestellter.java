@@ -41,4 +41,7 @@ public abstract class Angestellter implements Comparable<Angestellter>{
 	public int compareTo(Angestellter other) {
 	    return Double.compare(this.getGehalt(), other.getGehalt());
 	}
+	
+	//@Override
+	//public abstract String toString();
 }
