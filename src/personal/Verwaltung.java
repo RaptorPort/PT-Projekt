@@ -1,19 +1,41 @@
 package personal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class Verwaltung {
 	static int IDcounter = 0;
+	static int genCounter = 0;
+	
 	private static ArrayList<Angestellter> angestellte = new ArrayList<Angestellter>();
 	
 	public static void main(String[] args) {
-		addAngestellter();
+		for (int i = 0; i < 3; i++)
+			addAngestellter(genNewPersonInfo());
+		delAngestellter(1);
+		angestellte.forEach(a->System.out.println("ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt()));
+		Angestellter a = maxGehalt();
+		System.out.println("Bonzen des Monats iiiiist: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
+		a = minGehalt();
+		System.out.println("Ärmster Sklave iiiiist: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
 	}
 	
-	private static void addAngestellter() {
-		angestellte.add(getNewPersonInfo());
+	private static void addAngestellter(Angestellter a) {
+		angestellte.add(a);
+	}
+	
+	private static void delAngestellter(int ID) {
+		angestellte.removeIf(a-> a.ID == ID);
+	}
+	
+	private static Angestellter maxGehalt() {
+		return Collections.max(angestellte);
+	}
+	
+	private static Angestellter minGehalt() {
+		return Collections.min(angestellte);
 	}
 	
 	private static Angestellter getNewPersonInfo() {
@@ -32,7 +54,6 @@ public class Verwaltung {
 		
 		switch(typ) {
 		case "A":
-			System.out.println("Blub? Ficken?");
 			return (Angestellter)new Mitarbeiter(name, gehalt, datum, genID());
 		case "a":
 			return (Angestellter)new Mitarbeiter(name, gehalt, datum, genID());
@@ -44,6 +65,19 @@ public class Verwaltung {
 			System.out.println("\"" + typ + "\" ist kein Valider Typ!");
 			return null;
 		}	
+	}
+	
+	private static Angestellter genNewPersonInfo() {
+		genCounter++;
+		switch (genCounter) {
+			case 1:
+				return (Angestellter)new Mitarbeiter("Max", 1200, new GregorianCalendar(2018, 1, 1), genID());
+			case 2:
+				return (Angestellter)new Manager("Bob der Baumeister", 4200, new GregorianCalendar(2017, 12, 13), genID());
+			case 3:
+				return (Angestellter)new Mitarbeiter("Blub", 690, new GregorianCalendar(2018, 2, 7), genID());
+		}
+		return null;
 	}
 	
 	static int genID() {

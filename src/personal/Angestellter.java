@@ -1,7 +1,7 @@
 package personal;
 import java.util.GregorianCalendar;
 
-public abstract class Angestellter {
+public abstract class Angestellter implements Comparable<Angestellter>{
 	
 	protected String name;
 	protected double gehalt;
@@ -35,5 +35,10 @@ public abstract class Angestellter {
 
 	public int getID() {
 		return ID;
+	}
+	
+	@Override
+	public int compareTo(Angestellter other) {
+	    return Double.compare(this.getGehalt(), other.getGehalt());
 	}
 }
