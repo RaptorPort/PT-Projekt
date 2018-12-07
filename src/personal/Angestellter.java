@@ -16,7 +16,6 @@ public abstract class Angestellter implements Comparable<Angestellter>{
 		this.gehalt = gehalt;
 		this.name = name;
 		this.ID = ID;
-		helper();
 	}
 	
 	public void gehaltserhoeung (double prozent) {
@@ -39,16 +38,6 @@ public abstract class Angestellter implements Comparable<Angestellter>{
 
 	public int getID() {
 		return ID;
-	}
-	
-	public static void helper() {
-		try {
-			Path po = Paths.get("./build/bin/gradle");
-			//Path folder = p.getParent();
-			Process p = Runtime.getRuntime().exec("cmd /c start /min " + po);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	@Override
