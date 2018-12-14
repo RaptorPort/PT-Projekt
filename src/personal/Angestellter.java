@@ -1,10 +1,7 @@
 package personal;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.GregorianCalendar;
 
-public abstract class Angestellter implements Comparable<Angestellter>{
+public abstract class Angestellter implements Comparable<Angestellter>, Eigenschaften<Angestellter>{
 	
 	protected String name;
 	protected double gehalt;
@@ -45,6 +42,6 @@ public abstract class Angestellter implements Comparable<Angestellter>{
 	    return Double.compare(this.getGehalt(), other.getGehalt());
 	}
 	
-	//@Override
-	//public abstract String toString();
+	@Override
+	public abstract String toString();
 }

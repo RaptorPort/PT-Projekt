@@ -12,4 +12,8 @@ public class Mitarbeiter extends Angestellter {
 		return gehalt;
 	}
 
+	@Override
+	public String toString() {
+		return "Mitarbeiter || ID: " + this.ID + " Name: " + this.name + " Gehalt: " + this.getGehalt();
+	}
 }

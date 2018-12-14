@@ -1,8 +1,5 @@
 package personal;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -17,12 +14,13 @@ public class Verwaltung {
 	public static void main(String[] args) {
 		for (int i = 0; i < 3; i++)
 			addAngestellter(genNewPersonInfo());
-		delAngestellter(1);
-		angestellte.forEach(a->System.out.println("ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt()));
+		angestellte.forEach(a->System.out.println(a.toString()));
 		Angestellter a = maxGehalt();
-		System.out.println("Angestellter mit höchstem Gehalt: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
+		System.out.println("Angestellter mit höchstem Gehalt: " + a.toString());
 		a = minGehalt();
-		System.out.println("Angestellter mit niedrigstem Gehalt: ID: " + a.ID + " Name: " + a.name + " Gehalt : " + a.getGehalt());
+		System.out.println("Angestellter mit niedrigstem Gehalt: " + a.toString());
+		sortAngestellte();
+		angestellte.forEach(b->System.out.println(b.toString() + b.SpeisentoString()));
 	}
 	
 	private static void addAngestellter(Angestellter a) {
@@ -31,6 +29,10 @@ public class Verwaltung {
 	
 	private static void delAngestellter(int ID) {
 		angestellte.removeIf(a-> a.ID == ID);
+	}
+
+	private static void sortAngestellte() {
+		Collections.sort(angestellte);
 	}
 	
 	private static Angestellter maxGehalt() {
