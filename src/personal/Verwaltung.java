@@ -21,6 +21,11 @@ public class Verwaltung {
 		System.out.println("Angestellter mit niedrigstem Gehalt: " + a.toString());
 		sortAngestellte();
 		angestellte.forEach(b->System.out.println(b.toString() + b.SpeisentoString()));
+		System.out.println("");
+		Pair<Manager> m = minmaxManager();
+		
+		System.out.println("ManagerMax: " + m.getFirst().toString() );
+		System.out.println("ManagerMin: " + m.getSecond().toString());
 	}
 	
 	private static void addAngestellter(Angestellter a) {
@@ -41,6 +46,16 @@ public class Verwaltung {
 	
 	private static Angestellter minGehalt() {
 		return Collections.min(angestellte);
+	}
+	
+	private static Pair<Manager> minmaxManager() {
+		ArrayList<Manager> m = new ArrayList<Manager>();
+		for(Angestellter i: angestellte) {
+			if(i instanceof Manager) {
+				m.add((Manager)i);
+			}
+		}
+		return new Pair<Manager>((Manager)Collections.max(m), (Manager)Collections.min(m));
 	}
 	
 	private static boolean doppeltVorhanden() {

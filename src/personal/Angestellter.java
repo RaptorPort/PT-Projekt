@@ -7,6 +7,7 @@ public abstract class Angestellter implements Comparable<Angestellter>, Eigensch
 	protected double gehalt;
 	protected GregorianCalendar firstDay;
 	protected int ID;
+	protected int kleidergroesse = 36;
 	
 	public Angestellter (String name, double gehalt, GregorianCalendar firstDay, int ID) {
 		this.firstDay = firstDay;
@@ -35,6 +36,14 @@ public abstract class Angestellter implements Comparable<Angestellter>, Eigensch
 
 	public int getID() {
 		return ID;
+	}
+	
+	public boolean setKleidergroesse(int g) {
+		if (30 <= g && g <= 80) {
+			kleidergroesse = g;
+			return true;
+		}
+		return false;
 	}
 	
 	@Override

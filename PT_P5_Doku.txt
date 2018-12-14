@@ -1,0 +1,2 @@
+Es können Eigenschaften in Interfaces gespeichert werden. Jedoch sind diese final und können nicht weiter verändert werden. Deshalb sind sie gut als finale Standardwerte zu verwenden.
+Erstellt man ein Feld int test = 5 im Interface, kann dieses in einer Klasse die das Interface implementiert nicht verändert werden.

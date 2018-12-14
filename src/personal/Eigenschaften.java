@@ -30,4 +30,5 @@ public interface Eigenschaften<T> {
 		return out;
 	}
 	
+	boolean setKleidergroesse(int g);
 }
