@@ -75,7 +75,7 @@ public class Verwaltung {
 		System.out.println("Typ: A = Angestellter, M = Manager");
 		scan.nextLine();
 		String typ = scan.nextLine();		
-		
+		scan.close();
 		switch(typ) {
 		case "A":
 			return (Angestellter)new Mitarbeiter(name, gehalt, datum, genID());

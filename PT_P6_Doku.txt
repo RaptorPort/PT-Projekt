@@ -1,0 +1,5 @@
+Aufgabe 2) Erstellung der Klasse genericSort welche generische Listen sortieren kann. Hinzu kommt die Hilfmethode swap, 
+zum vertausche von Elementen in einer genrischen Liste und Ausgabemethoden.
+Damit die Methode die Liste per Bubblesort sortieren kann, muss die Typvariable T auf Typen, welche das Interface
+Comparable implementieren, eingeschränkt werden. Dies ist notwendig da wir die Methode compareTo des Interfaces
+nutzen  um die einzelnen Elemente der Liste miteinander zu vergleichen.
